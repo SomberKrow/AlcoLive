@@ -12,7 +12,7 @@ export const barLinks = [
     id: 'discord',
     label: 'Discord',
     url: 'https://discord.gg/alcolive',
-    image: '/assets/bottles/discord-bottle.svg',
+    image: '/assets/bottles/discord-bottle.webp',
     accent: '#5865f2',
     description: 'Community, announcements, and a seat with the regulars.',
     pour: 'House table'
