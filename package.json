@@ -1,0 +1,23 @@
+{
+  "name": "alcolive-bar-open-alpha",
+  "private": true,
+  "version": "1.0.0-alpha.1",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.vue --max-warnings=0"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "latest",
+    "vite": "latest",
+    "vue": "latest",
+    "sass": "latest"
+  },
+  "devDependencies": {
+    "eslint": "latest",
+    "eslint-plugin-vue": "latest",
+    "@eslint/js": "latest"
+  }
+}

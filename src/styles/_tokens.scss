@@ -1,0 +1,32 @@
+:root {
+  --color-bar-black: #090706;
+  --color-espresso: #1a0f0a;
+  --color-wood: #4a2414;
+  --color-cream: #f6e6c8;
+  --color-muted-brass: #a97442;
+  --color-neon-red: #ff3b3b;
+  --color-neon-gold: #ffd166;
+
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-label: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', monospace;
+
+  --layout-page: min(100% - 2rem, 1440px);
+  --header-height: 64px;
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.9rem;
+  --radius-lg: 1.4rem;
+  --radius-pill: 999px;
+
+  --duration-fast: 160ms;
+  --duration-medium: 280ms;
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.2, 0.9, 0.18, 1.12);
+}
+
+@media (max-width: 760px) {
+  :root {
+    --header-height: 58px;
+  }
+}
