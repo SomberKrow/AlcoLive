@@ -3,6 +3,7 @@
 - Keyboard can tab to every bottle and menu link.
 - Focus ring is visible against the bar background.
 - Reduced motion shows the neon already lit and removes major motion.
-- Mobile uses horizontal bottle scrolling and readable fallback menu cards.
+- Desktop shows the cinematic bottle shelf and bottle hover/focus reactions.
+- Tablet and mobile hide the bottle shelf and use The Menu as the primary link system.
 - Assets load from `/public/assets/...` paths.
-- No `dist/`, `node_modules/`, or lockfile in the ZIP.
+- No `dist/`, `node_modules/`, or lockfile are committed.
