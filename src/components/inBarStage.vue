@@ -21,6 +21,11 @@ defineProps({
     aria-labelledby="bar-stage-title"
   >
     <div class="bar-stage__scene">
+      <span
+        class="bar-stage__ambient"
+        aria-hidden="true"
+      ></span>
+
       <div class="bar-stage__sign-area">
         <InNeonSign :reduced-motion="reducedMotion" />
 
@@ -63,6 +68,16 @@ defineProps({
           />
         </ul>
       </div>
+
+      <span
+        class="bar-stage__bottle-glow"
+        aria-hidden="true"
+      ></span>
+
+      <span
+        class="bar-stage__counter-line"
+        aria-hidden="true"
+      ></span>
     </div>
   </section>
 </template>
@@ -80,11 +95,12 @@ defineProps({
   background:
     linear-gradient(180deg, rgba(9, 7, 6, 0.02), rgba(9, 7, 6, 0.08)),
     url('/assets/bar/alcos-bar-stage.webp') center / cover no-repeat;
+  background-color: #100906;
   border: 1px solid rgba(255, 209, 102, 0.12);
   border-radius: calc(var(--radius-lg) + 0.3rem);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -60px 100px rgba(0, 0, 0, 0.42),
+    inset 0 -68px 110px rgba(0, 0, 0, 0.44),
     0 36px 96px rgba(0, 0, 0, 0.42);
   isolation: isolate;
 }
@@ -96,59 +112,86 @@ defineProps({
   pointer-events: none;
   content: '';
   background:
-    radial-gradient(ellipse at 50% 22%, rgba(255, 209, 102, 0.08), transparent 34%),
-    radial-gradient(ellipse at 50% 54%, transparent 0 42%, rgba(9, 7, 6, 0.16) 70%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.18), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.18));
+    radial-gradient(ellipse at 50% 18%, rgba(255, 209, 102, 0.09), transparent 33%),
+    radial-gradient(ellipse at 50% 55%, transparent 0 40%, rgba(9, 7, 6, 0.18) 72%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.2), transparent 18%, transparent 82%, rgba(0, 0, 0, 0.2));
 }
 
 .bar-stage__scene::after {
   position: absolute;
-  right: 9%;
-  bottom: 18.2%;
-  left: 9%;
-  z-index: 2;
-  height: 1.7rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 3;
+  height: 28%;
   pointer-events: none;
   content: '';
-  background: radial-gradient(ellipse at center, rgba(255, 155, 60, 0.34), transparent 66%);
-  filter: blur(11px);
-  opacity: 0.78;
+  background: linear-gradient(180deg, transparent, rgba(5, 4, 3, 0.54));
+}
+
+.bar-stage__ambient {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 59, 59, 0.08), transparent 24rem),
+    radial-gradient(ellipse at 50% 71%, rgba(255, 174, 78, 0.16), transparent 28%);
+  mix-blend-mode: screen;
+  opacity: 0.76;
 }
 
 .bar-stage__sign-area {
   position: absolute;
-  top: 7%;
-  right: 28%;
-  left: 28%;
-  z-index: 5;
+  top: 6.2%;
+  right: 25%;
+  left: 25%;
+  z-index: 7;
   display: grid;
   justify-items: center;
+  padding: clamp(0.45rem, 0.9vw, 0.85rem) clamp(0.75rem, 1.5vw, 1.4rem);
   text-align: center;
+}
+
+.bar-stage__sign-area::before {
+  position: absolute;
+  inset: 4% 0 -8%;
+  z-index: -1;
+  content: '';
+  background:
+    radial-gradient(ellipse at 50% 22%, rgba(9, 7, 6, 0.5), transparent 70%),
+    linear-gradient(180deg, rgba(9, 7, 6, 0.26), rgba(9, 7, 6, 0.08));
+  border: 1px solid rgba(255, 209, 102, 0.045);
+  border-radius: var(--radius-lg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 18px 60px rgba(0, 0, 0, 0.22);
+  opacity: 0.7;
 }
 
 .bar-stage__copy {
   display: grid;
   justify-items: center;
   max-width: 580px;
-  margin-top: clamp(0.25rem, 0.7vw, 0.6rem);
+  margin-top: clamp(0.16rem, 0.45vw, 0.42rem);
 }
 
 .bar-stage__copy h2 {
   color: var(--color-cream);
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 2.6vw, 2.7rem);
+  font-size: clamp(1.35rem, 2.45vw, 2.55rem);
   letter-spacing: -0.045em;
   line-height: 1;
-  text-shadow: 0 7px 18px rgba(0, 0, 0, 0.42);
+  text-shadow: 0 7px 18px rgba(0, 0, 0, 0.48);
 }
 
 .bar-stage__copy p {
   max-width: 420px;
-  margin-top: 0.45rem;
-  color: rgba(246, 230, 200, 0.74);
-  font-size: clamp(0.82rem, 1.15vw, 1rem);
+  margin-top: 0.42rem;
+  color: rgba(246, 230, 200, 0.76);
+  font-size: clamp(0.82rem, 1.1vw, 1rem);
   line-height: 1.5;
-  text-shadow: 0 5px 14px rgba(0, 0, 0, 0.42);
+  text-shadow: 0 5px 14px rgba(0, 0, 0, 0.5);
 }
 
 .bar-stage__menu-jump {
@@ -166,16 +209,27 @@ defineProps({
   box-shadow:
     0 0 18px rgba(255, 59, 59, 0.14),
     0 16px 34px rgba(0, 0, 0, 0.32);
+  transition:
+    transform var(--duration-fast) var(--ease-standard),
+    border-color var(--duration-fast) var(--ease-standard),
+    background-color var(--duration-fast) var(--ease-standard);
+}
+
+.bar-stage__menu-jump:hover,
+.bar-stage__menu-jump:focus-visible {
+  background: rgba(255, 209, 102, 0.08);
+  border-color: rgba(255, 209, 102, 0.5);
+  transform: translateY(-0.1rem);
 }
 
 .bar-stage__bottles {
   position: absolute;
   right: 12%;
-  bottom: 14.1%;
+  bottom: 12.5%;
   left: 12%;
-  z-index: 6;
+  z-index: 8;
   display: grid;
-  gap: 0.55rem;
+  gap: 0.48rem;
   justify-items: center;
 }
 
@@ -197,10 +251,49 @@ defineProps({
   width: 100%;
   align-items: flex-end;
   justify-content: center;
-  gap: clamp(0.2rem, 0.95vw, 0.8rem);
+  gap: clamp(0.15rem, 0.9vw, 0.76rem);
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+.bar-stage__bottle-glow {
+  position: absolute;
+  right: 8%;
+  bottom: 14.2%;
+  left: 8%;
+  z-index: 5;
+  height: 2.7rem;
+  pointer-events: none;
+  background: radial-gradient(ellipse at center, rgba(255, 163, 78, 0.35), transparent 68%);
+  filter: blur(14px);
+  opacity: 0.82;
+}
+
+.bar-stage__counter-line {
+  position: absolute;
+  right: 7%;
+  bottom: 13.6%;
+  left: 7%;
+  z-index: 6;
+  height: 0.16rem;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, rgba(255, 209, 102, 0.52), rgba(255, 90, 45, 0.44), transparent);
+  border-radius: var(--radius-pill);
+  filter: blur(1px);
+  opacity: 0.72;
+}
+
+@media (max-width: 1180px) {
+  .bar-stage__sign-area {
+    right: 20%;
+    left: 20%;
+  }
+
+  .bar-stage__bottles {
+    right: 8%;
+    left: 8%;
+  }
 }
 
 @media (max-width: 1020px) {
@@ -224,7 +317,9 @@ defineProps({
   }
 
   .bar-stage__scene::after,
-  .bar-stage__bottles {
+  .bar-stage__bottles,
+  .bar-stage__bottle-glow,
+  .bar-stage__counter-line {
     display: none;
   }
 
@@ -261,6 +356,10 @@ defineProps({
   .bar-stage__copy {
     justify-items: start;
     text-align: left;
+  }
+
+  .bar-stage__sign-area::before {
+    inset: -3% -0.6rem -10%;
   }
 
   .bar-stage__copy h2 {
