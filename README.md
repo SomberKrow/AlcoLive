@@ -21,6 +21,7 @@ Bottle assets live here:
 
 ```txt
 public/assets/bottles/twitch-bottle.webp
+public/assets/bottles/discord-bottle.svg
 public/assets/bottles/youtube-bottle.webp
 public/assets/bottles/tiktok-bottle.webp
 public/assets/bottles/instagram-bottle.webp
@@ -37,4 +38,5 @@ public/assets/bar/alcos-bar-stage.webp
 
 - No `dist/`, `node_modules/`, or `package-lock.json` are included.
 - The bottles are temporary generated assets with transparent backgrounds.
+- The Discord bottle is a temporary SVG asset until final creator assets are available.
 - The neon sign is CSS text/effects so it can be animated and edited quickly.
