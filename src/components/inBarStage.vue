@@ -33,9 +33,12 @@ defineProps({
             Streams, clips, posts, and mocktails welcome.
           </p>
 
-          <p class="bar-stage__mobile-cue">
-            The bottle shelf stays behind the bar on desktop. On smaller screens, use the menu below.
-          </p>
+          <a
+            class="bar-stage__menu-jump"
+            href="#link-menu"
+          >
+            Open The Menu
+          </a>
         </div>
       </div>
 
@@ -49,7 +52,7 @@ defineProps({
 
         <ul
           class="bar-stage__list"
-          aria-label="AlcoLive social links"
+          aria-label="AlcoLive bottle links"
         >
           <InBottleCard
             v-for="(link, index) in links"
@@ -66,13 +69,13 @@ defineProps({
 
 <style scoped lang="scss">
 .bar-stage {
-  padding-block: clamp(1rem, 2vw, 1.65rem) clamp(2.2rem, 5vw, 4rem);
+  padding-block: clamp(0.9rem, 2vw, 1.65rem) clamp(2.2rem, 5vw, 4rem);
 }
 
 .bar-stage__scene {
   position: relative;
-  overflow: hidden;
   min-height: min(56.25vw, 810px);
+  overflow: hidden;
   aspect-ratio: 16 / 9;
   background:
     linear-gradient(180deg, rgba(9, 7, 6, 0.02), rgba(9, 7, 6, 0.08)),
@@ -148,8 +151,21 @@ defineProps({
   text-shadow: 0 5px 14px rgba(0, 0, 0, 0.42);
 }
 
-.bar-stage__mobile-cue {
+.bar-stage__menu-jump {
   display: none;
+  margin-top: 1rem;
+  padding: 0.72rem 0.95rem;
+  color: var(--color-cream);
+  font-size: 0.78rem;
+  font-weight: 950;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: rgba(9, 7, 6, 0.62);
+  border: 1px solid rgba(255, 209, 102, 0.26);
+  border-radius: var(--radius-pill);
+  box-shadow:
+    0 0 18px rgba(255, 59, 59, 0.14),
+    0 16px 34px rgba(0, 0, 0, 0.32);
 }
 
 .bar-stage__bottles {
@@ -178,9 +194,9 @@ defineProps({
 
 .bar-stage__list {
   display: flex;
+  width: 100%;
   align-items: flex-end;
   justify-content: center;
-  width: 100%;
   gap: clamp(0.2rem, 0.95vw, 0.8rem);
   padding: 0;
   margin: 0;
@@ -189,11 +205,11 @@ defineProps({
 
 @media (max-width: 1020px) {
   .bar-stage {
-    padding-block: 0.9rem 1.25rem;
+    padding-block: 0.85rem 1.25rem;
   }
 
   .bar-stage__scene {
-    min-height: clamp(24rem, 58vw, 34rem);
+    min-height: clamp(25rem, 58vw, 34rem);
     aspect-ratio: auto;
     background-position: center;
     background-size: cover;
@@ -203,11 +219,12 @@ defineProps({
   .bar-stage__scene::before {
     background:
       radial-gradient(ellipse at 50% 22%, rgba(255, 209, 102, 0.12), transparent 34%),
-      linear-gradient(180deg, rgba(5, 4, 3, 0.12), rgba(5, 4, 3, 0.48)),
+      linear-gradient(180deg, rgba(5, 4, 3, 0.12), rgba(5, 4, 3, 0.5)),
       linear-gradient(90deg, rgba(0, 0, 0, 0.24), transparent 24%, transparent 76%, rgba(0, 0, 0, 0.24));
   }
 
-  .bar-stage__scene::after {
+  .bar-stage__scene::after,
+  .bar-stage__bottles {
     display: none;
   }
 
@@ -222,39 +239,36 @@ defineProps({
     max-width: 36rem;
   }
 
-  .bar-stage__mobile-cue {
-    display: block;
-    max-width: 31rem;
-    margin-top: 0.9rem;
-    color: rgba(246, 230, 200, 0.58);
-    font-size: 0.82rem;
-  }
-
-  .bar-stage__bottles {
-    display: none;
+  .bar-stage__menu-jump {
+    display: inline-flex;
   }
 }
 
 @media (max-width: 640px) {
   .bar-stage {
-    padding-top: 0.7rem;
+    padding-top: 0.65rem;
   }
 
   .bar-stage__scene {
-    min-height: 26rem;
+    min-height: 25.5rem;
     margin-inline: -1rem;
     border-right: 0;
     border-left: 0;
     border-radius: 0;
   }
 
-  .bar-stage__sign-area {
+  .bar-stage__sign-area,
+  .bar-stage__copy {
     justify-items: start;
     text-align: left;
   }
 
-  .bar-stage__copy {
-    justify-items: start;
+  .bar-stage__copy h2 {
+    font-size: clamp(1.45rem, 9vw, 2.35rem);
+  }
+
+  .bar-stage__copy p {
+    max-width: 20rem;
   }
 }
 </style>
